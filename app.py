@@ -6,6 +6,8 @@ import math
 import joblib
 import datetime
 import torch.nn as nn
+import os
+from dotenv import load_dotenv
 
 import torch
 import numpy as np
@@ -91,6 +93,8 @@ def ensureGetModel():
     return g._model
 
 if __name__ == '__main__':
+    load_dotenv()
+    app.run(host=os.environ.get('HOST'), port=os.environ.get('PORT'), debug=True)
     app.run(debug=True)
     # print(model)
 
